@@ -65,7 +65,7 @@ describe("Binary Tree", () => {
       expect(test).to.deep.equal([2, 4, 6, 10, 12, 14, 16]);
     });
   });
-  xdescribe("The traverse breadth first method", () => {
+  describe("The traverse breadth first method", () => {
     it("should call the fn at each level from left to right", () => {
       let test = [];
       binaryTree.add(4);

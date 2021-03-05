@@ -11,23 +11,47 @@ class Tree {
     this.children = [];
   }
 
-  // adds a child into the tree
+  // working - adds a child into the tree
   addChild(value) {
     // push a new tree into the current tree's children
+    let newNode = new Tree(value); //node and tree can be used interchangeably - node can also be a tree (subtrees)
+    this.children.push(newNode); //this represents the child obj - the tree itself
   }
 
-  // returns true/false if the value is in the tree
+  // working - returns true/false if the value is in the tree
   contains(value) {
     // if the tree value matches the value passed in
-    // return true
+    if (this.value === value) {
+      //this.children is an array - cannot compare array to number
+      // return true
+      return true;
+    }
     // else
     // loop through all the children
-    // call the contains method located on each child (pass the value in)
+
+    for (let child of this.children) {
+      if (child.contains(value)) {
+        // call the contains method located on each child (pass the value in)
+        return true; //had added a step too many here
+      }
+    }
+    return false;
     // return false if not found at all
   }
 
-  // applies the function to each child in the tree
-  traverse(fn) {}
+  // working - applies the function to each child in the tree
+  traverse(fn) {
+    //apply to this node
+    //node I'm currently working on
+    fn(this); //do it first on tree and see if tree has any children
+
+    //apply to the children
+    for (let child of this.children) {
+      child.traverse(fn); //applies to all children - recursive call here
+      // fn(child);//only works if all the children are leaf nodes
+    }
+    //base case happens automatically because there is a limit
+  }
 
   // OPTIONAL
   //return the node with that value if found. Returns null otherwise
