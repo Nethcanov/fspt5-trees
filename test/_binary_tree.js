@@ -78,7 +78,7 @@ describe("Binary Tree", () => {
       expect(test).to.deep.equal([10, 4, 14, 2, 6, 12, 16]);
     });
   });
-  xdescribe("The lowestCommonAncestor method", () => {
+  describe("The lowestCommonAncestor method", () => {
     it("should return 10 for 2 and 16", () => {
       binaryTree.add(4);
       binaryTree.add(14);
