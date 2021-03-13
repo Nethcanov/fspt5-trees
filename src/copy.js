@@ -129,17 +129,18 @@ class Tree {
     }
     // Find childNode index (else return null)
     let childNodeIx = refNode.children.findIndex(c => c.value === childValue);
+    //got through the children and find the one that matches childValue from params
     if (childNodeIx === -1) {
+      //if it doesn't match - array will be empty and have -1 index
       return null;
     }
     // Create new node
     let newNode = new Tree(value);
     // In refNode, replace childNode with newNode
-    let childNode = refNode.children[childNodeIx];
+    let childNode = refNode.children[childNodeIx]; //I'm unclear on what [] is doing here
     refNode.children[childNodeIx] = newNode;
     // Add childNode to newNode
-    newNode.children.push(childNode);
-    return newNode;
+    return newNode.children.push(childNode);
   }
 }
 

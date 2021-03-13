@@ -83,8 +83,7 @@ class Tree {
     let newNode = new Tree(value);
     let childNode = refNode.children[childNodeIx];
     refNode.children[childNodeIx] = newNode;
-    newNode.children.push(childNode);
-    return newNode;
+    return newNode.children.push(childNode);
   }
 }
 

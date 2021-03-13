@@ -33,7 +33,7 @@ class BinaryTree {
       }
     }
   }
-  // working but not recursive
+  // working
   // returns true or false if the value is in the tree
   // contains(value) {
   //   if (value === this.value) {
@@ -48,7 +48,7 @@ class BinaryTree {
   //   }
   //   return false; //value not found
   // }
-  // working and recursive!!!
+  // working
   contains(value) {
     if (value === this.value) {
       return true; //if the root and value are the same
