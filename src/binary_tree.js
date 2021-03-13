@@ -63,7 +63,7 @@ class BinaryTree {
     }
     return false;
   }
-  // working - very stuck! - node in the second search is throwing me
+  // working
   // apply callback in this order: left node, current node, right node
   traverseDepthFirstInOrder(fn) {
     if (this.left) {
@@ -132,19 +132,6 @@ class BinaryTree {
     }
     return null;
   }
-  //need to write tests for this
-  //apply callback from node, left then right
-  // traversePreOrder(fn){
-  //   if(this.value){
-  //   fn(this.value);
-  //   }
-  //   if(this.left){
-  //     fn(this.left);
-  //   }
-  //   if(this.right){
-  //     fn(this.right);
-  //   }
-  // }
 }
 
 module.exports = BinaryTree;
