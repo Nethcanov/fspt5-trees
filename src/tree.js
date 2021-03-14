@@ -69,7 +69,8 @@ class Tree {
 
   // OPTIONAL
 
-  //adds a node with "value" between refValue and childValue (which has to be a child of refValu)
+  //adds a node with "value" between refValue and childValue (which has to be
+  //a child of refValu)
   //returns the new node added
   insertBetween(refValue, childValue, value) {
     let refNode = this.find(refValue);
@@ -81,9 +82,11 @@ class Tree {
       return null;
     }
     let newNode = new Tree(value);
-    let childNode = refNode.children[childNodeIx];
+    let childNode = refNode.children[childNodeIx]; //[] contains the index number extracted
+    // by the code on line 80!
     refNode.children[childNodeIx] = newNode;
-    return newNode.children.push(childNode);
+    newNode.children.push(childNode);
+    return newNode;
   }
 }
 

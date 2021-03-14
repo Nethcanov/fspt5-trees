@@ -96,18 +96,18 @@ class Tree {
   // adds a node with "value" as a child of the node with refValue - use the addChild method!!!!
   // -> returns the new node added
   // or null if refValue was not found
-  // insertChildUnder(refValue, value) {
-  //   let refNode = this.find(refValue);
-  //   //if refNode found, return it
-  //   //addChild() must return newly added child
-  //   if (refNode) {
-  //     //changed the 2 lines below but not fixed it
-  //     return refNode.addChild(value); //recursively call the addChild method
-  //     // return upDated;
-  //   } else {
-  //     return null;
-  //   }
-  // }
+  insertChildUnder(refValue, value) {
+//     let refNode = this.find(refValue);
+//     //if refNode found, return it
+//     //addChild() must return newly added child
+//     if (refNode) {
+//       //changed the 2 lines below but not fixed it
+//       return refNode.addChild(value); //recursively call the addChild method
+//       // return upDated;
+//     } else {
+//       return null;
+//     }
+//   }
   insertChildUnder(refValue, value) {
     let refNode = this.find(refValue);
     if (refNode) {
@@ -140,7 +140,8 @@ class Tree {
     let childNode = refNode.children[childNodeIx]; //I'm unclear on what [] is doing here
     refNode.children[childNodeIx] = newNode;
     // Add childNode to newNode
-    return newNode.children.push(childNode);
+    newNode.children.push(childNode);
+    return newNode;
   }
 }
 
