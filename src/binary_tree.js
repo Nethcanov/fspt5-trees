@@ -14,7 +14,7 @@ class BinaryTree {
   // adds node to left if value is less than or equal to this.value
   // adds node to right if value is greater than node
   add(value) {
-    if (value < this.value) {
+    if (value <= this.value) {
       if (this.left) {
         this.left.add(value);
       } else {
@@ -52,6 +52,28 @@ class BinaryTree {
     if (this.right) {
       this.right.traverseDepthFirstInOrder(fn);
     }
+  }
+  //depth first pre-order
+  // returns an array of all values in the tree in depth first preorder (current, left, right)
+  getValues() {
+    let result = [];
+    function traverse(node) {
+      // if (node.value) {//not needed
+      //   //check there is a root node and push the value to the array
+      //   result.push(node.value); //ok
+      // }
+      result.push(node.value);
+
+      if (node.left) {
+        //check there is a left, traverse it and push it on the result array
+        traverse(node.left);
+      }
+      //check there is a right and traverse it - does the same as above
+      node.right && traverse(node.right);
+    }
+
+    traverse(this);
+    return result;
   }
 
   // working - Jim did this with print not a callback!

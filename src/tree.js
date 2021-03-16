@@ -35,7 +35,7 @@ class Tree {
   traverse(fn) {
     fn(this);
     for (let child of this.children) {
-      child.traverse(fn);
+      child.traverse(fn); //fn(child) - only works if each child is a single node
     }
   }
 
@@ -68,9 +68,8 @@ class Tree {
   }
 
   // OPTIONAL
-
   //adds a node with "value" between refValue and childValue (which has to be
-  //a child of refValu)
+  //a child of refValue)
   //returns the new node added
   insertBetween(refValue, childValue, value) {
     let refNode = this.find(refValue);

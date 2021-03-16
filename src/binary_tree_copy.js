@@ -13,9 +13,9 @@ class BinaryTree {
       //if it's smaller than the root
       if (this.left) {
         //if left exists
-        this.left.add(value); //if there is a left child, call the add method recursively on it
+        this.left.add(value); // - here is the recursion - if there is a left child, call the add method recursively on it
       } else {
-        //save value as new left child if there isn't a left child
+        //create a left and save value as new left child if there isn't a left child
         this.left = new BinaryTree(value);
       }
     } else {
@@ -56,6 +56,27 @@ class BinaryTree {
       return true; //do this
     }
     return false;
+  }
+
+  //current, left, right - not checked
+  traverseDepthFirstPreOrder(fn) {
+    fn(this);
+    if (this.left) {
+      this.left.traverseDepthFirstInOrder(fn);
+    }
+    if (this.right) {
+      this.right.traverseDepthFirstInOrder(fn);
+    }
+  }
+  //left, right, current - not checked
+  traverseDepthFirstPostOrder(fn) {
+    if (this.left) {
+      this.left.traverseDepthFirstInOrder(fn);
+    }
+    if (this.right) {
+      this.right.traverseDepthFirstInOrder(fn);
+    }
+    fn(this);
   }
   // working
   // apply callback in this order: left node, current node, right node

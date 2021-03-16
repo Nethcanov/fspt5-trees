@@ -65,6 +65,32 @@ describe("Binary Tree", () => {
       expect(test).to.deep.equal([2, 4, 6, 10, 12, 14, 16]);
     });
   });
+
+  describe("The getValues method", () => {
+    it("should return an array of all values in depth first preorder", () => {
+      binaryTree.add(4);
+      binaryTree.add(14);
+      binaryTree.add(6);
+      binaryTree.add(16);
+      binaryTree.add(2);
+      binaryTree.add(12);
+      expect(binaryTree.getValues()).to.deep.equal([10, 4, 2, 6, 14, 12, 16]);
+    });
+  });
+  describe("The getValues method", () => {
+    it("should work on a single node", () => {
+      expect(binaryTree.getValues()).to.deep.equal([10]);
+    });
+  });
+  describe("The getValues method", () => {
+    it("should work with negative values", () => {
+      binaryTree = new BinaryTree(-4);
+      binaryTree.add(-10);
+      binaryTree.add(-1);
+      expect(binaryTree.getValues()).to.deep.equal([-4, -10, -1]);
+    });
+  });
+
   describe("The traverse breadth first method", () => {
     it("should call the fn at each level from left to right", () => {
       let test = [];
